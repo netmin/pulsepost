@@ -1,0 +1,21 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: abatilo/actions-poetry@v2
+      - name: Install deps
+        run: poetry install --no-interaction
+      - name: Run tests
+        run: poetry run pytest -q
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Run npm test
+        working-directory: frontend
+        run: npm test

@@ -1,0 +1,7 @@
+{
+  "name": "pulsepost-frontend",
+  "version": "0.1.0",
+  "scripts": {
+    "test": "echo \"No JS tests yet\""
+  }
+}

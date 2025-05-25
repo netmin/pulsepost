@@ -1,5 +1,10 @@
 import httpx
-from backend.llm_provider import LocalProvider, OpenAIProvider
+from backend.llm_provider import (
+    LocalProvider,
+    OpenAIProvider,
+    HFAPIProvider,
+    get_provider,
+)
 
 
 class DummyResp:
@@ -34,3 +39,10 @@ def test_openai_provider_called_with_key(monkeypatch):
     result = provider.generate("hello")
     assert result == "bar"
     assert calls["headers"]["Authorization"] == "Bearer sk-test"
+
+
+def test_factory_returns_correct_provider(monkeypatch):
+    monkeypatch.setenv("MODEL_PROVIDER", "hf_api")
+    provider = get_provider()
+    assert isinstance(provider, HFAPIProvider)
+

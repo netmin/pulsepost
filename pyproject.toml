@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "pulsepost-ai"
+version = "0.1.0"
+description = "PulsePost AI Toolkit"
+authors = ["Your Name <you@example.com>"]
+packages = [{include = "backend"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "0.112.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^8.0"
+httpx = "^0.27"

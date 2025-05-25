@@ -4,8 +4,8 @@ FROM python:3.12-slim
 RUN pip install --no-cache-dir uv fastapi uvicorn
 
 WORKDIR /app
-COPY ../pyproject.toml ./pyproject.toml
-COPY . ./backend
+COPY pyproject.toml ./pyproject.toml
+COPY backend ./backend
 ENV PYTHONPATH=/app
 
 # Install dependencies using uv (fast, no-venv)

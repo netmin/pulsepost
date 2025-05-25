@@ -38,7 +38,7 @@ repo/
  $EDITOR .env   # fill TELEGRAM_*, X_*, MODEL_PROVIDER etc.
 
 # 2 · Launch everything
- docker compose up --build -d   # first run downloads LLM weights
+docker compose up --build -d   # backend uses `uv` server, first run downloads weights
 
 # 3 · Open dashboard
  http://localhost:5000  # generate → edit → publish
